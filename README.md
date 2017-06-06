@@ -31,6 +31,11 @@ Or use a shorthand:
 
 `validates_immutability_of :my_field`
 
+Also you need to add `.activerecord.errors.base.immutability` translation to your local `I18n` storage.
+Alternatively you can use:
+ 
+ `validates :my_field, immutability: { message: 'My awesome message' }`
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
