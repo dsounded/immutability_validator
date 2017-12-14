@@ -5,7 +5,7 @@ class ImmutabilityValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, _)
     return if record.new_record?
 
-    record.errors.add(attribute, options[:message] || I18n.t('.activerecord.errors.base.immutability')) if record.attribute_changed?(attribute)
+    record.errors.add(attribute, options[:message] || I18n.t('.activerecord.errors.base.immutability')) if record.will_save_change_to_attribute?(attribute)
   end
 end
 
